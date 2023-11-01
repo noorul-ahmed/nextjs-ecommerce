@@ -16,5 +16,24 @@ const config: Config = {
     },
   },
   plugins: [require("daisyui")],
+  daisyui: {
+    themes: [
+      {
+        Flowmazon: {
+          primary: "#ff9900",
+          secondary: "#146eb4",
+          accent: "#1dcdbc",
+          neutral: "#2b3440",
+          "base-100": "#ffffff",
+          info: "#3abff8",
+          success: "#36d399",
+          warning: "#fbbd23",
+          error: "#f87272",
+        },
+      },
+      "light",
+      "dark",
+    ],
+  },
 }
 export default config
