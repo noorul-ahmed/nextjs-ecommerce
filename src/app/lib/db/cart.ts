@@ -3,7 +3,6 @@ import { cookies } from "next/dist/client/components/headers";
 import { Cart, CartItem, Prisma } from "@prisma/client";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-import { it } from "node:test";
 
 export type cartWithProducts = Prisma.CartGetPayload<{
   include: { items: { include: { product: true } } };
@@ -76,7 +75,7 @@ export async function mergeAnonymousCartWithUserCart(userId: string) {
   if (!localCart) return;
 
   const userCart = await prisma.cart.findFirst({
-    where: { userId },
+    where: { userID: userId },
     include: { items: true },
   });
 
